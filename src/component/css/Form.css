@@ -1,0 +1,19 @@
+*{
+    /* background-color: blanchedalmond; */
+}
+.forms{
+    /* padding: 0 1rem; */
+}
+.topRow{
+   
+    display: flex;
+    justify-content: space-between;
+}
+.secondRow{
+    display: flex;
+   justify-content: space-between;
+}
+.last{
+    display: flex;
+   justify-content: space-around;
+}
