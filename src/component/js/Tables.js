@@ -1,7 +1,14 @@
 import React from 'react'
-import { Button, Icon, Label, Menu, Table } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
+import { Button, Table } from 'semantic-ui-react'
 
-const Tables = () => (
+
+const Tables = (props) => (
+
+
+ 
+    <>
+
   <Table celled>
     <Table.Header>
       <Table.Row>
@@ -20,7 +27,7 @@ const Tables = () => (
         
       <Table.Row>
         <Table.Cell>1</Table.Cell>
-        <Table.Cell>samsung</Table.Cell>
+        <Table.Cell>dbyass</Table.Cell>
         <Table.Cell>1</Table.Cell>
         <Table.Cell>60000</Table.Cell>
         <Table.Cell>10%</Table.Cell>
@@ -31,6 +38,7 @@ const Tables = () => (
 
     
   </Table>
+  </>
 )
 
 export default Tables

@@ -1,42 +1,105 @@
-import React from 'react'
+import React , { useRef } from 'react'
+import ReactToPrint from 'react-to-print';
 import '../css/Form.css'
 import Dropdowns from './Dropdowns';
 import Tables from './Tables';
-import { Button } from 'semantic-ui-react';
+
+
+import { useForm } from 'react-hook-form';
+
+
+
+
+
+
+
+
 
 const Form = () => {
+ 
+    const componentRef = useRef();
+   
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const onSubmit = (data) => {
+      console.log(data); // Do something with the form data
+    };
+  // const formik = useFormik({
+  //   initialValues: {
+  //     name:" ",
+  //     date:" ",
+  //     bill:" ",
+  //     fiscal:" ",
+  //     pan:" ",
+  //     address:" ",
+  //     item:" ",
+  //     quantity:" ",
+  //     price:" ",
+  //     discount:" ",
+  //     amount:" ",
+  //   },
     
+
+
   return (
-    <div>
-    <div className="forms">
-     <form action="">
+    <div >
+    <div className="forms"  ref={componentRef}>
+     <form action="" onSubmit={handleSubmit(onSubmit)} >
      <div className="topRow">
      <div className="fiscalyear">
-     <label htmlFor="Fiscal">Fiscal Year : </label>
-     <input type="text" name='Fiscal'  />
+     <label htmlFor="fiscal">Fiscal Year : </label>
+     <input {...register('name', { required: true })}  /> <br />
+     {errors.name && <span>This field is required</span>}
      </div>
      <div className="date">
      <label htmlFor="date">Date : </label>
-     <input type="date" name='date'  />
+     <input type="date" {...register('date', { required: true })}  /> <br />
+     {errors.date && <span>Date is required</span>}
      </div>
      <div className="bill">
      <label htmlFor="bill">Bill no : </label>
-     <input type="text" name='bill'  />
+     <input type="text" {...register('bill', { 
+      required: 'Bill No  is required',
+      pattern: {
+        value: /^[0-9]+$/ ,
+        message: 'Bill no cant be alphabet'
+      }
+    })}   />  <br />
+    {errors.bill && <span>{errors.bill.message}</span>}
+   
      </div>
      </div>
      <div className="secondRow">
      <div className="Name">
      <label htmlFor="name">Name : </label>
-     <input type="text" name='name'  />
+     <input  {...register('name', { 
+      required: 'name is required',
+      pattern: {
+        value: /^[A-Za-z]+$/,
+        message: 'Number are not accepted in name field'
+      }
+    })} 
+      /> <br />
+      {errors.name && <span>{errors.name.message}</span>}
+    
      </div>
      <div className="Address">
      <label htmlFor="address">Address : </label>
-     <input type="text" name='address'  />
+     <input {...register('address', { required: true })}  />
+     {errors.address && <span>address  is required</span>}
+    
      </div>
      <div className="Pan">
      <label htmlFor="pan">PAN No : </label>
-     <input type="text" name='pan'  />
+     <input  {...register('pan', { 
+      required: 'PAN No  is required',
+      pattern: {
+        value: /^[0-9]+$/ ,
+        message: 'PAN No cant be alphabet'
+      }
+    })}   /> <br />
+    {errors.pan && <span>{errors.pan.message}</span>}
+ 
      </div>
      <div className="Payment">
      <Dropdowns />
@@ -45,34 +108,64 @@ const Form = () => {
   <div className="third">
   <div className="Item">
   <label htmlFor="item">Item : </label>
-  <input type="text" name='item'  />
+  <input  {...register('item', { required: true })}  /> <br />
+  {errors.item && <span> item is required</span>}
+  
   </div>
   <div className="Quantity">
   <label htmlFor="quantity">Quantity : </label>
-  <input type="text" name='quantity'  />
+  <input  {...register('quantity', { 
+    required: 'quantity  is required',
+    pattern: {
+      value: /^[0-9]+$/ ,
+      message: ' cant be alphabet'
+    }
+  })}     />
+  {errors.quantity && <span>{errors.quantity.message}</span>}
   </div>
   <div className="Price">
   <label htmlFor="price">Price : </label>
-  <input type="text" name='price'  />
+  <input  {...register('price', { 
+    required: '  is required',
+    pattern: {
+      value: /^[0-9]+$/ ,
+      message: ' enter price in number'
+    }
+  })}   />
+  {errors.price && <span>{errors.price.message}</span>}
   </div>
   <div className="Discount">
   <label htmlFor="discount">Discount Rate : </label>
-  <input type="text" name='discount'  />
+  <input  {...register('discount', { 
+    required: '  is required',
+    pattern: {
+      value: /^[0-9]+$/ ,
+      message: ' enter in number'
+    }
+  })}   />
+  {errors.discount && <span>{errors.discount.message}</span>}
   </div>
   <div className="Amount">
   <label htmlFor="amount">Amount : </label>
-  <input type="text" name='amount'  />
+  <input  {...register('amount', { 
+    required: '  is required',
+    pattern: {
+      value: /^[0-9]+$/ ,
+      message: ' enter in number'
+    }
+  })}   />
+  {errors.amount && <span>{errors.amount.message}</span>}
   </div>
   <div className="submit">
-  <input type="Submit"  value="Add" />
+  <button type="submit">Submit</button>
   </div>
 </div>
      </form>
     <div className="table">
-    <Tables />
+    <Tables  />
     </div>
      <div className="clear">
-     <Button type='danger'>Clear All</Button>
+     <button >Clear All</button>
      </div>
      <div className="last">
      <div className="content">
@@ -87,7 +180,13 @@ const Form = () => {
      </div>
      </div>
      <div className="print">
-     
+     <div>
+      <ReactToPrint
+        trigger={() => <button>Print this out!</button>}
+        content={() => componentRef.current}
+      />
+      
+    </div>
      </div>
     </div>
   )
