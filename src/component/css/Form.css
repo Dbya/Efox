@@ -196,10 +196,18 @@ hr
 }
 
 @media (max-width: 768px) {
+
+
     .main {
+        margin:0;
+        padding: 0;
         display: grid;
       grid-template-columns: 1fr;
-      padding: 1rem;
+    }
+
+    .heading
+    {
+        margin-top: 0;
     }
   
     .mid-line
@@ -207,14 +215,6 @@ hr
 display: none;
     }
     
-    .left-page,
-    .right-page {
-      padding: 1rem;
-    }
-  .right-page
-{
-    margin-top: 0;
-}
     .heading {
       font-size: 1.2rem;
     }

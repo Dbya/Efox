@@ -7,7 +7,7 @@ const Tables =() => {
     backgroundColor:'rgb(142, 150, 189)'
   };
   return (
-    <Table striped>
+    <Table striped responsive>
       <thead>
         <tr>
           <th style={tableStyle}>S.N</th>
