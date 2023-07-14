@@ -1,44 +1,47 @@
 import React from 'react'
-import 'semantic-ui-css/semantic.min.css';
-import { Button, Table } from 'semantic-ui-react'
 
+import Table from 'react-bootstrap/Table';
 
-const Tables = (props) => (
+const Tables =() => {
+  const tableStyle= {
+    backgroundColor:'rgb(142, 150, 189)'
+  };
+  return (
+    <Table striped>
+      <thead>
+        <tr>
+          <th style={tableStyle}>S.N</th>
+          <th style={tableStyle}>Item</th>
+          <th style={tableStyle}>Qty</th>
+          <th style={tableStyle}>Rate</th>
+          <th style={tableStyle}>Discount</th>
+          <th style={tableStyle}>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Noodles</td>
+          <td> <input type='text' value={''} />
+          </td>
+          <td><input type='text' value={''} /></td>
+          <td><input type='text' value={''} /></td>
+          <td>1000</td>
+        </tr>
+        <tr>
+        <td>1</td>
+          <td>Noodles</td>
+          <td> <input type='text' value={''} />
+          </td>
+          <td><input type='text' value={''} /></td>
+          <td><input type='text' value={''} /></td>
+          <td>800</td>
+         </tr>
+  
+      </tbody>
+    </Table>
+  );
+}
 
+export default Tables;
 
- 
-    <>
-
-  <Table celled>
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>S.N</Table.HeaderCell>
-        <Table.HeaderCell>Item</Table.HeaderCell>
-        <Table.HeaderCell>Quantity </Table.HeaderCell>
-        <Table.HeaderCell>Price </Table.HeaderCell>
-        <Table.HeaderCell>Discount Rate</Table.HeaderCell>
-        <Table.HeaderCell>Amount</Table.HeaderCell>
-        <Table.HeaderCell>Action</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
-
-    <Table.Body>
-     
-        
-      <Table.Row>
-        <Table.Cell>1</Table.Cell>
-        <Table.Cell>dbyass</Table.Cell>
-        <Table.Cell>1</Table.Cell>
-        <Table.Cell>60000</Table.Cell>
-        <Table.Cell>10%</Table.Cell>
-        <Table.Cell>6000</Table.Cell>
-        <Table.Cell><Button>Edit</Button> <Button>Delete</Button> </Table.Cell>
-      </Table.Row>
-    </Table.Body>
-
-    
-  </Table>
-  </>
-)
-
-export default Tables

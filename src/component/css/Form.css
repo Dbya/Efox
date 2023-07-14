@@ -1,22 +1,249 @@
+
 *{
-    /* background-color: blanchedalmond; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.forms{
-    /* padding: 0 1rem; */
+
+html {
+    font-size: 1rem;
 }
-.topRow{
-   
+
+body {
+    background-color: #e1e8edea;
+    line-height: 1;
+    font-family: Roboto,sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.main
+{
+    display: grid;
+    grid-template-columns: 7.97fr 0.03fr 3fr;
+    /* grid-gap: 20px; */
+}
+.left-page {
+     overflow-y: scroll;
+    max-height: 100vh;
+    /* padding:2rem; */
+}
+
+.right-page {
+    background-color: lightgreen;
+    overflow-y: scroll;
+    max-height: 100vh;
+}
+.mid-line
+{
+    background-color:rgb(132, 33, 213);
+    height: 100vh;
+}
+
+.heading
+{
+display: flex;
+align-items: center;
+height: 2rem;
+width: 100%;
+padding: 0.7rem 0.3rem;
+background-color:rgba(52, 6, 255,0.3);
+font-family: 'Pangolin', cursive;
+color:rgb(216, 20, 6);
+font-size: 1.6rem;
+}
+
+.input-field
+{
+    background-color: #e1e8edea;
+    width: 100%;
+    padding: 2rem;
+}
+
+.inputs
+{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
-.secondRow{
+.item
+{
+    width:80vh;
+}
+.inputStyles
+{
+    background: #f9fafb;
+    font-size: 0.9rem;
+    border-bottom-width: 2px;
+    border-radius: 0.5rem;
+    border: 1px solid  #c0c4c9;
+    border-bottom: 2px solid  #c0c4c9;
+    color: #1b1c1c;
+    padding: 1rem;
+    margin: 0.3rem;
+}
+
+.table
+{
+    padding: 1rem 2rem;
+    margin:0;
+    background-color: #e1e8edea;
+}
+.clear
+{
     display: flex;
-   justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rem;
 }
-.last{
+
+.clear > input
+{
+    width: 20%;
+    background:rgb(205, 47, 12);
+    font-size: 1.4rem;
+    box-shadow: none;
+    border-radius: 0.4rem;
+    color:  #f7f8f8;
+    border:none; 
+    padding: 0.3rem;
+    margin-top: 0.3rem;
+
+}
+
+hr
+{
+    margin:0;
+    height: 0.5rem;
+    width: 100%;
+    background-color:rgb(52, 6, 255);
+}
+
+
+.right-page
+{
+    background-color: #e1e8edea;
+    margin-top:1rem ;
+}
+
+  .details
+  {
     display: flex;
-   justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    margin-left:1rem;
+     height:100%;
+  }
+
+.customer-details
+{
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem 2rem;
+    width: 100%;
 }
-.error{
-    color: red;
+
+
+.customerLabel
+ {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #050505;
+    width: 10vw;
+    padding:0.4rem;
+    /* margin: 0rem 0.3rem; */
+  }
+ .customerInput
+   {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 15vw;
+    padding: 0.7rem;
+ } 
+
+ .error
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(173, 15, 15);
+    margin-left: 1rem;
 }
+
+.footer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.print
+{
+    width: 40%;
+     background:rgb(59, 86, 224);
+     font-size: 1.4rem;
+     box-shadow: none;
+     border-radius: 0.4rem;
+     color:  #f7f8f8;
+     border:none; 
+     padding: 0.5rem;
+     margin-top: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .main {
+        display: grid;
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+  
+    .mid-line
+    {
+display: none;
+    }
+    
+    .left-page,
+    .right-page {
+      padding: 1rem;
+    }
+  .right-page
+{
+    margin-top: 0;
+}
+    .heading {
+      font-size: 1.2rem;
+    }
+    .item {
+        width: 100%;
+      }
+    
+      .inputStyles {
+        font-size: 0.8rem;
+      }
+    
+      .clear > input {
+        width: 100%;
+        font-size: 1rem;
+      }
+    
+      .customerLabel {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    
+      .customerInput {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    
+      .print {
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+    
